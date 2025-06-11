@@ -3,11 +3,12 @@ activityCompose = "1.10.1"
 agp = "8.9.2"
 composeBom = "2025.04.01"
 coreKtx = "1.16.0"
+detekt = "1.23.8"
 espressoCore = "3.6.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 kotlin = "2.1.20"
-kotlinDsl = "6.1.0"
+kotlinDsl = "5.1.1"
 lifecycleRuntimeKtx = "2.8.7"
 
 
@@ -30,6 +31,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-dsl = { id = "org.gradle.kotlin.kotlin-dsl", version.ref = "kotlinDsl" }
