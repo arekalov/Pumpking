@@ -16,7 +16,7 @@ class ExampleUnitTest {
     }
 
     @Test
-    fun broken_test() {
+    fun another_test() {
         assertEquals(4, 2 + 2 )
     }
 }
