@@ -21,6 +21,11 @@ class ExampleUnitTest {
     }
 
     @Test
+    fun another_correct() {
+        assertEquals(false, false)
+    }
+
+    @Test
     fun another_test() {
         assertEquals(4, 2 + 2 )
     }
