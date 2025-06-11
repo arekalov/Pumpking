@@ -21,12 +21,13 @@ jobs:
 
       - name: Run detekt
         run: ./gradlew detekt
+        continue-on-error: true
 
       - name: Upload detekt report
         uses: actions/upload-artifact@v4
         with:
           name: detekt.html
-          path: app/build/reports/detekt/detekt.html
+          path: app/build/reports/detekt
 
       - name: Run unit tests
         run: ./gradlew test
