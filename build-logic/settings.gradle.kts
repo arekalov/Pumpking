@@ -1,3 +1,10 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
