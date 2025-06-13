@@ -1,6 +1,7 @@
 package com.arekalov.pumpking
 
 import android.content.res.Configuration
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -32,8 +33,46 @@ import com.arekalov.commonui.ui.theme.LocalPaletteColors
 import com.arekalov.commonui.ui.theme.PumpkingTheme
 
 @Composable
+internal fun ExerciseImageView(
+    exerciseCategory: ExerciseCategory = ExerciseCategory.OTHER,
+    @DrawableRes image: Int? = null,
+) {
+    val borderColor = when (exerciseCategory) {
+        ExerciseCategory.ARMS -> LocalPaletteColors.current.accentRed
+        ExerciseCategory.SHOULDERS -> LocalPaletteColors.current.accentLightBlue
+        ExerciseCategory.FULLBODY -> LocalPaletteColors.current.accentOrange
+        ExerciseCategory.LEGS -> LocalPaletteColors.current.accentYellow
+        ExerciseCategory.CHEST -> LocalPaletteColors.current.accentGreen
+        ExerciseCategory.CORE -> LocalPaletteColors.current.accentPurple
+        ExerciseCategory.CARDIO -> LocalPaletteColors.current.accentCyan
+        ExerciseCategory.OTHER -> LocalPaletteColors.current.accentGrey
+        ExerciseCategory.BACK -> LocalPaletteColors.current.accentBlue
+    }
+    Box(
+        modifier = Modifier
+            .clip(CircleShape)
+            .border(width = 2.dp, shape = CircleShape, color = borderColor)
+            .size(40.dp)
+    ) {
+        if (image != null) {
+            androidx.compose.foundation.Image(
+                painter = painterResource(image),
+                contentDescription = null,
+                modifier = Modifier.clip(CircleShape),
+            )
+        } else {
+            Box(modifier = Modifier
+                .background(MaterialTheme.colorScheme.onSecondaryContainer)
+                .size(40.dp))
+        }
+    }
+}
+
+@Suppress("detekt:LongMethod")
+@Composable
 internal fun ExerciseCardView(
     modifier: Modifier = Modifier,
+    onAddSetClicked: () -> Unit,
     exerciseState: ExerciseState,
 ) {
     Column(
@@ -51,7 +90,8 @@ internal fun ExerciseCardView(
             Box(
                 modifier = Modifier
                     .clip(CircleShape)
-                    .background(MaterialTheme.colorScheme.primary)
+                    .background(MaterialTheme.colorScheme.onSecondaryContainer)
+                    .border(width = 2.dp, shape = CircleShape, color = MaterialTheme.colorScheme.primary)
                     .size(40.dp),
             )
 
@@ -84,7 +124,7 @@ internal fun ExerciseCardView(
             }
 
             IconButton(
-                onClick = {},
+                onClick = onAddSetClicked,
                 modifier = Modifier.size(24.dp),
             ) {
                 Icon(
@@ -150,7 +190,6 @@ private fun ExerciseSetView(
 }
 
 
-
 @Composable
 @Preview(
     uiMode = Configuration.UI_MODE_NIGHT_YES
@@ -187,6 +226,7 @@ private fun ExerciseCardViewPreview() {
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             ExerciseCardView(
+                onAddSetClicked = {},
                 exerciseState = ExerciseState(
                     category = ExerciseCategory.ARMS,
                     title = "Жим штанги ляжа",
@@ -197,10 +237,11 @@ private fun ExerciseCardViewPreview() {
                         ExerciseSetState("12", "20"),
                         ExerciseSetState("10", "7"),
                         ExerciseSetState("12", "20"),
-                    )
+                    ),
                 )
             )
             ExerciseCardView(
+                onAddSetClicked = {},
                 exerciseState = ExerciseState(
                     category = ExerciseCategory.LEGS,
                     title = "Разгибание рук на блоке из-за головы стоя на коленях, держа в руках гантель неимоверно" +
@@ -217,6 +258,7 @@ private fun ExerciseCardViewPreview() {
             )
 
             ExerciseCardView(
+                onAddSetClicked = {},
                 exerciseState = ExerciseState(
                     category = ExerciseCategory.LEGS,
                     title = "Кранчи",
@@ -224,6 +266,28 @@ private fun ExerciseCardViewPreview() {
                         ExerciseSetState("12", "20"),
                     )
                 )
+            )
+        }
+    }
+}
+
+@Composable
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)
+private fun ExerciseCategoryPreview() {
+    PumpkingTheme {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            ExerciseImageView(
+                exerciseCategory = ExerciseCategory.SHOULDERS
+            )
+            ExerciseImageView(
+                exerciseCategory = ExerciseCategory.CORE
+            )
+
+            ExerciseImageView(
+                exerciseCategory = ExerciseCategory.SHOULDERS,
+                image = R.drawable.ic_launcher_foreground
             )
         }
     }
