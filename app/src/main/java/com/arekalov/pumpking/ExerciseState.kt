@@ -15,6 +15,7 @@ internal enum class ExerciseCategory {
     FULLBODY,
     SHOULDERS,
     CHEST,
+    BACK,
     LEGS,
     ARMS,
     CORE,
