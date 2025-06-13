@@ -1,5 +1,4 @@
 pluginManagement {
-    includeBuild("build-logic")
     repositories {
         google {
             content {
@@ -22,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Pumpking"
 include(":app")
-//include(":lib-workout")
+include(":lib-common-ui")

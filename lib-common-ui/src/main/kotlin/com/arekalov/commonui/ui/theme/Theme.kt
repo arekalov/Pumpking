@@ -1,4 +1,4 @@
-package com.arekalov.pumpking.ui.theme
+package com.arekalov.commonui.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.ColorScheme
@@ -8,7 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 
-val DarkColorScheme: ColorScheme
+private val DarkColorScheme: ColorScheme
     get() = lightColorScheme(
         primary = darkPrimary,
         secondary = darkSecondary,
@@ -40,7 +40,7 @@ private val LightColorScheme: ColorScheme
         onSecondaryContainer = lightOnContainerVariant,
     )
 
-internal data class PumpkingUniversalColors(
+data class PumpkingUniversalColors(
     val accentRed: Color,
     val accentRedVariant: Color,
     val accentGreen: Color,

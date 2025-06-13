@@ -12,6 +12,8 @@ junit = "4.13.2"
 junitVersion = "1.2.1"
 kotlinDsl = "5.1.1"
 lifecycleRuntimeKtx = "2.8.7"
+appcompat = "1.7.1"
+material = "1.12.0"
 
 
 [libraries]
@@ -29,6 +31,8 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 
 [plugins]
