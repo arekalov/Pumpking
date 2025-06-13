@@ -2,6 +2,9 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="22">
+      <module name="Pumpking.buildSrc" target="23" />
+      <module name="Pumpking.buildSrc.main" target="23" />
+      <module name="Pumpking.buildSrc.test" target="23" />
       <module name="Pumpking.lib-workout" target="23" />
     </bytecodeTargetLevel>
   </component>
